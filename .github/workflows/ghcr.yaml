@@ -16,13 +16,13 @@ jobs:
           distribution: 'adopt'
 
       - name: Build the package
-        run: mvn --batch-mode -Dsk ipTests package
+        run: mvn --batch-mode -DskipTests package
 
       - name: Run the unit tests
-        run: mvn --batch-mode -Maven.test.failure.ignore=true test
+        run: mvn --batch-mode -Dmaven.test.failure.ignore=true test
 
       - name: Report
-        uses: dory/test-reporter@v1
+        uses: dorny/test-reporter@v1
         if: always()
         with:
           name: Maven Tests
@@ -34,4 +34,10 @@ jobs:
         run: |
           docker login --username Vedang2122 --password ${{secrets.ACCESS_TOKEN}} ghcr.io
           docker build -t ghcr.io/Vedang2122/primes-service:latest --file Dockerfile .  
-          docker push ghcr.io/Vedang2122/primes-service:latest 
+          docker push ghcr.io/Vedang2122/primes-service:latest
+          
+          
+          
+          
+          
+          
