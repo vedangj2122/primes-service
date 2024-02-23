@@ -5,12 +5,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class PrimesServiceTest {
-    PrimesService primesService = new PrimesService() {
-        @Override
-        public boolean isPrime(int n) {
-            return false;
-        }
-    };
+    PrimesService primesService = new PrimesService() ;
 
     @Test
     void _45IsNotPrime(){
