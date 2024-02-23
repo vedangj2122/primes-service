@@ -9,20 +9,20 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v1
 
-      - name: Set up JDK 1.17
+      - name: Set up JDK 1.21
         uses: actions/setup-java@v2
         with:
-          java-version: '17'
+          java-version: '21'
           distribution: 'adopt'
 
       - name: Build the package
-        run: mvn --batch-mode -DskipTests package
+        run: mvn --batch-mode -Dsk ipTests package
 
       - name: Run the unit tests
-        run: mvn --batch-mode -Dmaven.test.failure.ignore=true test
+        run: mvn --batch-mode -Maven.test.failure.ignore=true test
 
       - name: Report
-        uses: dorny/test-reporter@v1
+        uses: dory/test-reporter@v1
         if: always()
         with:
           name: Maven Tests
